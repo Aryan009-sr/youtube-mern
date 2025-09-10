@@ -163,5 +163,65 @@ export const videosData = [
         duration: "21:40",
         uploadedTime: "3 months ago",
         category: 'homepage'
+    },{
+        title: "A Day in Tokyo",
+        description: "Join me as I explore the vibrant streets and unique culture of Tokyo.",
+        videoUrl: "https://www.youtube.com/embed/d29y0e3J38w",
+        thumbnailUrl: "https://i.ytimg.com/vi/exHkSFxqEzk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAjgGTLKIRRAQwrsHTq89u2uJ-Ybg",
+        tags: ["travel", "vlog", "japan", "culture"],
+        views: 95000,
+        duration: "21:40",
+        uploadedTime: "3 months ago",
+        category: 'homepage'
+    },{
+        title: "A Day in Tokyo",
+        description: "Join me as I explore the vibrant streets and unique culture of Tokyo.",
+        videoUrl: "https://www.youtube.com/embed/d29y0e3J38w",
+        thumbnailUrl: "https://i.ytimg.com/vi/exHkSFxqEzk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAjgGTLKIRRAQwrsHTq89u2uJ-Ybg",
+        tags: ["travel", "vlog", "japan", "culture"],
+        views: 95000,
+        duration: "21:40",
+        uploadedTime: "3 months ago",
+        category: 'homepage'
+    },{
+        title: "A Day in Tokyo",
+        description: "Join me as I explore the vibrant streets and unique culture of Tokyo.",
+        videoUrl: "https://www.youtube.com/embed/d29y0e3J38w",
+        thumbnailUrl: "https://i.ytimg.com/vi/exHkSFxqEzk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAjgGTLKIRRAQwrsHTq89u2uJ-Ybg",
+        tags: ["travel", "vlog", "japan", "culture"],
+        views: 95000,
+        duration: "21:40",
+        uploadedTime: "3 months ago",
+        category: 'homepage'
+    },{
+        title: "A Day in Tokyo",
+        description: "Join me as I explore the vibrant streets and unique culture of Tokyo.",
+        videoUrl: "https://www.youtube.com/embed/d29y0e3J38w",
+        thumbnailUrl: "https://i.ytimg.com/vi/exHkSFxqEzk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAjgGTLKIRRAQwrsHTq89u2uJ-Ybg",
+        tags: ["travel", "vlog", "japan", "culture"],
+        views: 95000,
+        duration: "21:40",
+        uploadedTime: "3 months ago",
+        category: 'homepage'
+    },{
+        title: "A Day in Tokyo",
+        description: "Join me as I explore the vibrant streets and unique culture of Tokyo.",
+        videoUrl: "https://www.youtube.com/embed/d29y0e3J38w",
+        thumbnailUrl: "https://i.ytimg.com/vi/exHkSFxqEzk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAjgGTLKIRRAQwrsHTq89u2uJ-Ybg",
+        tags: ["travel", "vlog", "japan", "culture"],
+        views: 95000,
+        duration: "21:40",
+        uploadedTime: "3 months ago",
+        category: 'homepage'
+    },{
+        title: "A Day in Tokyo",
+        description: "Join me as I explore the vibrant streets and unique culture of Tokyo.",
+        videoUrl: "https://www.youtube.com/embed/d29y0e3J38w",
+        thumbnailUrl: "https://i.ytimg.com/vi/exHkSFxqEzk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAjgGTLKIRRAQwrsHTq89u2uJ-Ybg",
+        tags: ["travel", "vlog", "japan", "culture"],
+        views: 95000,
+        duration: "21:40",
+        uploadedTime: "3 months ago",
+        category: 'homepage'
     }
 ];

@@ -10,16 +10,23 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token') || null);
 
+  // Normalize user object so it always has `_id`
+  const normalizeUser = (decodedUser) => {
+    return {
+      ...decodedUser,
+      _id: decodedUser._id || decodedUser.id, // ensure _id is always present
+    };
+  };
+
   // Check token validity on mount or token change
   useEffect(() => {
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        console.log("Decoded token: ", decodedToken);
         if (decodedToken.exp * 1000 < Date.now()) {
           logout();
         } else {
-          setUser(decodedToken.user);
+          setUser(normalizeUser(decodedToken.user));
         }
       } catch (error) {
         console.error("Invalid token:", error);
@@ -33,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('token', newToken);
     setToken(newToken);
     const decodedToken = jwtDecode(newToken);
-    setUser(decodedToken.user);
+    setUser(normalizeUser(decodedToken.user));
   };
 
   // Logout function
@@ -62,7 +69,7 @@ export const AuthProvider = ({ children }) => {
 
   // Update user data
   const updateUser = (newUserData) => {
-    setUser(newUserData);
+    setUser(normalizeUser(newUserData));
   };
 
   return (
