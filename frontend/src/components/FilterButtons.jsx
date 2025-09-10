@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FilterButtons = ({ activeFilter, setActiveFilter }) => {
-  const filters = ['All', 'Music', 'Gaming', 'Mixes', 'React', 'Live', 'Tutorials', 'Programming', 'Comedy', 'News'];
+  const filters = ['All', 'Music', 'Gaming', 'Mixes', 'React', 'Live', 'Tutorials', 'Programming', 'Comedy'];
 
   return (
     <div className="sticky top-17 z-20 bg-[#121212] p-4 no-scrollbar border-b border-gray-800">

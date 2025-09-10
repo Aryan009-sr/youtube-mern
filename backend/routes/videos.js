@@ -18,7 +18,7 @@ router.get('/search', searchVideos);
 router.get('/:id', getVideoById);
 
 router.post('/', protect , createVideo);
-router.post('/:id', protect, updateVideo);
+router.put('/:id', protect, updateVideo);
 router.delete('/:id', protect, deleteVideo);
 
 router.put('/like/:id', protect, likeVideo);

@@ -1,16 +1,25 @@
-// src/services/videoService.js
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// Base URL for videos API
+const API_URL = 'http://localhost:5000/api/videos';
 
-export const getChannelVideos = async (channelId) => {
-  const res = await axios.get(`${API_URL}/api/channels/${channelId}`);
-  return res.data.videos;
+// Create a new video
+export const createVideo = async (videoData, token) => {
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  const response = await axios.post(API_URL, videoData, config);
+  return response.data;
 };
 
+// Update an existing video
+export const updateVideo = async (videoId, updatedData, token) => {
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  const response = await axios.put(`${API_URL}/${videoId}`, updatedData, config);
+  return response.data;
+};
+
+// Delete a video
 export const deleteVideo = async (videoId, token) => {
-  const res = await axios.delete(`${API_URL}/api/videos/${videoId}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.data;
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  const response = await axios.delete(`${API_URL}/${videoId}`, config);
+  return response.data;
 };
