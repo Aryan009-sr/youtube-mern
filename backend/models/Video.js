@@ -42,6 +42,11 @@ const videoSchema = new mongoose.Schema({
         type: String,
         default: '00:00',
     },
+    category: {
+        type: String,
+        enum: ['homepage', 'channel'], 
+        default: 'homepage',
+    },
 }, { timestamps: true });
 
 videoSchema.index({ 
