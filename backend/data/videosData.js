@@ -7,7 +7,8 @@ export const videosData = [
         tags: ["programming", "react", "javascript", "frontend"],
         views: 12000,
         duration: "15:45",
-        uploadedTime: "2 weeks ago"
+        uploadedTime: "2 weeks ago",
+        category: 'homepage'
     },
     {
         title: "Node.js & Express API Development",
@@ -15,9 +16,10 @@ export const videosData = [
         videoUrl: "https://www.youtube.com/embed/G-9ZbjGHxYs",
         thumbnailUrl: "https://i.ytimg.com/vi/Oe421EPjeBE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBRRkj08EUKhkhHtsUAIuDPZ248Tw",
         tags: ["programming", "backend", "nodejs", "express"],
-     views: 55000,
+        views: 55000,
         duration: "22:10",
-        uploadedTime: "1 month ago"
+        uploadedTime: "1 month ago",
+        category: 'homepage'
     },
     {
         title: "Mastering MongoDB: The Basics",
@@ -27,7 +29,8 @@ export const videosData = [
         tags: ["programming", "database", "mongodb", "nodejs"],
         views: 8000,
         duration: "09:30",
-        uploadedTime: "3 days ago"
+        uploadedTime: "3 days ago",
+        category: 'homepage'
     },
     {
         title: "Full Stack Web Development Roadmap",
@@ -37,7 +40,8 @@ export const videosData = [
         tags: ["programming", "webdev", "roadmap", "career"],
         views: 250000,
         duration: "35:00",
-        uploadedTime: "5 months ago"
+        uploadedTime: "5 months ago",
+        category: 'homepage'
     },
     {
         title: "How I Built My Smart Home",
@@ -47,7 +51,8 @@ export const videosData = [
         tags: ["technology", "diy", "smart home", "electronics"],
         views: 15000,
         duration: "18:00",
-        uploadedTime: "3 weeks ago"
+        uploadedTime: "3 weeks ago",
+        category: 'homepage'
     },
     {
         title: "Beginner's Guide to Digital Photography",
@@ -57,7 +62,8 @@ export const videosData = [
         tags: ["photography", "tutorials", "hobby"],
         views: 38000,
         duration: "12:50",
-        uploadedTime: "1 month ago"
+        uploadedTime: "1 month ago",
+        category: 'homepage'
     },
     {
         title: "Exploring the Ancient City of Rome",
@@ -67,7 +73,8 @@ export const videosData = [
         tags: ["travel", "history", "vlog", "italy"],
         views: 67000,
         duration: "25:30",
-        uploadedTime: "2 months ago"
+        uploadedTime: "2 months ago",
+        category: 'homepage'
     },
     {
         title: "Easy & Delicious Dinner Recipes",
@@ -77,7 +84,8 @@ export const videosData = [
         tags: ["cooking", "food", "recipes"],
         views: 92000,
         duration: "10:15",
-        uploadedTime: "1 week ago"
+        uploadedTime: "1 week ago",
+        category: 'homepage'
     },
     {
         title: "Introduction to Machine Learning",
@@ -87,7 +95,8 @@ export const videosData = [
         tags: ["programming", "ai", "machine learning"],
         views: 130000,
         duration: "40:00",
-        uploadedTime: "4 months ago"
+        uploadedTime: "4 months ago",
+        category: 'homepage'
     },
     {
         title: "Meditation for Beginners",
@@ -97,7 +106,8 @@ export const videosData = [
         tags: ["meditation", "lifestyle", "health"],
         views: 25000,
         duration: "05:00",
-        uploadedTime: "3 months ago"
+        uploadedTime: "3 months ago",
+        category: 'homepage'
     },
     {
         title: "10 Essential Gadgets for Travelers",
@@ -107,7 +117,8 @@ export const videosData = [
         tags: ["technology", "travel", "gadgets"],
         views: 45000,
         duration: "08:30",
-        uploadedTime: "1 month ago"
+        uploadedTime: "1 month ago",
+        category: 'homepage'
     },
     {
         title: "The Best of Lo-Fi Hip Hop",
@@ -117,7 +128,8 @@ export const videosData = [
         tags: ["music", "lofi", "beats", "study"],
         views: 2500000,
         duration: "3:00:00",
-        uploadedTime: "6 months ago"
+        uploadedTime: "6 months ago",
+        category: 'homepage'
     },
     {
         title: "Full Body Workout at Home",
@@ -127,7 +139,8 @@ export const videosData = [
         tags: ["fitness", "health", "workout"],
         views: 180000,
         duration: "16:00",
-        uploadedTime: "2 months ago"
+        uploadedTime: "2 months ago",
+        category: 'homepage'
     },
     {
         title: "SpaceX Starship Launch",
@@ -137,7 +150,8 @@ export const videosData = [
         tags: ["space", "technology", "science"],
         views: 500000,
         duration: "04:20",
-        uploadedTime: "2 days ago"
+        uploadedTime: "2 days ago",
+        category: 'homepage'
     },
     {
         title: "A Day in Tokyo",
@@ -148,5 +162,6 @@ export const videosData = [
         views: 95000,
         duration: "21:40",
         uploadedTime: "3 months ago",
+        category: 'homepage'
     }
 ];
