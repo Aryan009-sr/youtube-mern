@@ -6,71 +6,43 @@ import { videosData } from './data/videosData.js';
 
 dotenv.config();
 
-// Dummy user data
-const users = [
-    {
-        username: 'Codevolution',
-        email: 'codevolution@example.com',
-        password: 'password123',
-        profileImage: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-    },
-    {
-        username: 'Traversy Media',
-        email: 'traversy@example.com',
-        password: 'password123',
-        profileImage: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png',
-    },
-    {
-        username: 'Academind',
-        email: 'academind@example.com',
-        password: 'password123',
-        profileImage: 'https://cdn-icons-png.flaticon.com/512/3135/3135823.png',
-    },
-];
-
 const seedDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB connected for seeding');
 
-        // Clear existing data from both collections
+        // Clear existing videos
         await Video.deleteMany({});
-        await User.deleteMany({});
-        console.log('Existing data cleared.');
+        console.log('Existing videos cleared.');
 
-        // Insert dummy users and get their IDs
-        const createdUsers = await User.insertMany(users);
-        const userIds = createdUsers.map(user => user._id);
-        const dummyUser = userIds[0]; // Use one user for all comments for simplicity
-        console.log('Users seeded successfully');
+        // Fetch existing users
+        let existingUsers = await User.find();
 
-        // Prepare video data with all required properties and comments
-        const videosWithFullData = videosData.map(video => {
-            return {
-                ...video,
-                // Assign a random user from the seeded users
-                userId: userIds[Math.floor(Math.random() * userIds.length)],
-                // Add dummy data for required fields
-                views: Math.floor(Math.random() * 200000) + 10000,
-                duration: "15:00", // Placeholder for duration
-                uploadedTime: `${Math.floor(Math.random() * 12) + 1} months ago`, // Placeholder for time
-                // Add dummy comments
-                comments: [
-                    {
-                        userId: dummyUser,
-                        comment: "This is a great video! 👏",
-                    },
-                    {
-                        userId: dummyUser,
-                        comment: "Awesome content, keep it up!",
-                    },
-                ]
-            };
-        });
+        // If no users exist, create temporary dummy users
+        if (existingUsers.length === 0) {
+            const dummyUsers = [
+                { username: 'TempUser1', email: 'temp1@example.com', password: 'password123' },
+                { username: 'TempUser2', email: 'temp2@example.com', password: 'password123' },
+            ];
+            const createdUsers = await User.insertMany(dummyUsers);
+            existingUsers = createdUsers;
+            console.log('Temporary dummy users created for seeding videos.');
+        }
 
-        // Insert the new videos
+        const userIds = existingUsers.map(user => user._id);
+
+        // Prepare video data
+        const videosWithFullData = videosData.map(video => ({
+            ...video,
+            userId: userIds[Math.floor(Math.random() * userIds.length)],
+            views: Math.floor(Math.random() * 200000) + 10000,
+            duration: "15:00",
+            uploadedTime: `${Math.floor(Math.random() * 12) + 1} months ago`,
+        }));
+
+        // Insert videos
         await Video.insertMany(videosWithFullData);
-        console.log(`Database seeded with ${videosWithFullData.length} videos and comments!`);
+        console.log(`Database seeded with ${videosWithFullData.length} videos!`);
 
     } catch (err) {
         console.error(`Error during seeding: ${err.message}`);

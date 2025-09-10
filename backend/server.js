@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.js'
 import videoRoutes from './routes/videos.js'
 import channelRoutes from './routes/channels.js'
 import commentRoutes from './routes/comment.js'
+import userRoutes from './routes/user.js'
 // Load environment variables
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/channels', channelRoutes);
 app.use('/api/comments', commentRoutes);
+app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

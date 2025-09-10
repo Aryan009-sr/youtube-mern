@@ -1,33 +1,37 @@
-// src/components/ProfileMenu.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  MdOutlineSwitchAccount,
-  MdOutlineExitToApp,
-  MdOutlineSettings,
-  MdOutlineHelpOutline,
-  MdOutlineFeedback,
-} from 'react-icons/md';
+import { MdOutlineSwitchAccount, MdOutlineExitToApp, MdOutlineSettings, MdOutlineHelpOutline, MdOutlineFeedback } from 'react-icons/md';
+import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
 
-const ProfileMenu = ({ user, logout }) => {
+const ProfileMenu = () => {
+  const { user, logout, updateUser } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef(null);
 
+  // Handle logout
   const handleLogout = () => {
     logout();
     navigate('/');
     setIsMenuOpen(false);
   };
 
-  const handleProfileClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+  // Fetch latest user data when menu opens
+  const handleProfileClick = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/users/me');
+      updateUser(res.data.user); // Update context with fresh user data
+    } catch (err) {
+      console.error('Failed to fetch latest user data:', err);
+    }
+    setIsMenuOpen(prev => !prev); // toggle menu after fetch
   };
 
-  const getUserInitial = (username) => {
-    return username ? username.charAt(0).toUpperCase() : '';
-  };
+  // Get initial from username
+  const getUserInitial = (username) => username ? username.charAt(0).toUpperCase() : '';
 
+  // Close menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -35,36 +39,24 @@ const ProfileMenu = ({ user, logout }) => {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  if (!user) {
-    return null; // Don't render if user is not logged in
-  }
+  if (!user) return null; // Don't render if not logged in
 
-  // ✅ Check if the user really has a custom profile image
-  const hasRealImage =
-    user.profileImage && user.profileImage !== 'https://via.placeholder.com/48';
+  const hasRealImage = user.profileImage && user.profileImage !== 'https://via.placeholder.com/48';
 
   return (
     <div className="relative" ref={menuRef}>
       {/* Small profile icon */}
       <div
         className={`w-8 h-8 rounded-full cursor-pointer ${
-          hasRealImage
-            ? ''
-            : 'bg-blue-500 flex items-center justify-center text-lg font-bold text-white'
+          hasRealImage ? '' : 'bg-blue-500 flex items-center justify-center text-lg font-bold text-white'
         }`}
         onClick={handleProfileClick}
       >
         {hasRealImage ? (
-          <img
-            src={user.profileImage}
-            alt="User Profile"
-            className="w-full h-full rounded-full object-cover"
-          />
+          <img src={user.profileImage} alt="User Profile" className="w-full h-full rounded-full object-cover" />
         ) : (
           <span>{getUserInitial(user.username)}</span>
         )}
@@ -76,17 +68,11 @@ const ProfileMenu = ({ user, logout }) => {
           <div className="flex items-center p-4 border-b border-gray-700">
             <div
               className={`w-10 h-10 rounded-full mr-3 ${
-                hasRealImage
-                  ? ''
-                  : 'bg-blue-500 flex items-center justify-center text-2xl font-bold text-white'
+                hasRealImage ? '' : 'bg-blue-500 flex items-center justify-center text-2xl font-bold text-white'
               }`}
             >
               {hasRealImage ? (
-                <img
-                  src={user.profileImage}
-                  alt="User Profile"
-                  className="w-full h-full rounded-full object-cover"
-                />
+                <img src={user.profileImage} alt="User Profile" className="w-full h-full rounded-full object-cover" />
               ) : (
                 <span>{getUserInitial(user.username)}</span>
               )}
