@@ -143,15 +143,12 @@ export const updateVideo = async (req, res) => {
 // @access  Private
 export const deleteVideo = async (req, res) => {
   try {
-    const video = await Video.findById(req.params.id);
-    if (!video) return res.status(404).json({ msg: 'Video not found' });
-
-    if (video.userId.toString() !== req.user.id) {
-      return res.status(403).json({ msg: 'Not authorized' });
+    // Only allow the video owner to delete
+    const video = await Video.findOneAndDelete({ _id: req.params.id, userId: req.user.id });
+    if (!video) {
+      return res.status(404).json({ msg: 'Video not found or user not authorized' });
     }
-
-    await video.remove();
-    res.json({ msg: 'Video deleted successfully' });
+    res.json({ msg: 'Video removed successfully' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
