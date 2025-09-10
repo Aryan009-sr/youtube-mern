@@ -45,7 +45,7 @@ const ChannelPage = () => {
       const videoData = {
         title: newVideoTitle,
         thumbnailUrl: newVideoThumbnail,
-        description: 'Dummy description',
+        description: 'Welcome to my channel',
         videoUrl: 'https://example.com/video.mp4',
         userId: user._id,
       };

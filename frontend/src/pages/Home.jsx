@@ -32,12 +32,14 @@ const Home = () => {
         if (activeFilter === 'All') {
             setDisplayedVideos(videos);
         } else {
-            const filtered = videos.filter(video => 
-                video.tags.includes(activeFilter.toLowerCase())
+            const filtered = videos.filter(video =>
+                Array.isArray(video.tags) &&
+                video.tags.some(tag => tag.toLowerCase().includes(activeFilter.toLowerCase()))
             );
             setDisplayedVideos(filtered);
         }
     }, [activeFilter, videos]);
+
 
     if (loading) {
         return <div className="text-white text-center mt-8">Loading...</div>;
@@ -48,10 +50,10 @@ const Home = () => {
     }
 
     return (
-        <div className="bg-[#121212] min-h-screen text-white p-4 sm:p-6 md:p-8">
+        <div className="bg-[#121212] min-h-screen text-white p-4  sm:p-6 md:p-8">
             <FilterButtons activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6"> 
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
                 {displayedVideos.length > 0 ? (
                     displayedVideos.map(video => (
                         <VideoCard key={video._id} video={video} />
