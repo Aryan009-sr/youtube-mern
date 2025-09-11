@@ -63,6 +63,7 @@ export const getChannelDetails = async (req, res) => {
         res.json({
             channel: {
                 _id: channel._id,
+                userId: channel.userId,
                 name: channel.name,
                 handle: channel.handle,
                 description: channel.description,

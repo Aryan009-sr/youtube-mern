@@ -18,6 +18,7 @@ const ChannelPage = () => {
 
   const [newVideoTitle, setNewVideoTitle] = useState('');
   const [newVideoThumbnail, setNewVideoThumbnail] = useState('');
+  const [newVideoDescription, setNewVideoDescription] = useState('');
   const [editingVideoId, setEditingVideoId] = useState(null);
   const [editingTitle, setEditingTitle] = useState('');
 
@@ -27,6 +28,7 @@ const ChannelPage = () => {
         setLoading(true);
         const res = await fetch(`http://localhost:5000/api/channels/${channelId}`);
         const data = await res.json();
+        console.log("Channel API response: ", data);
         setChannelData(data.channel);
         setVideos(data.videos);
         setLoading(false);
@@ -40,22 +42,24 @@ const ChannelPage = () => {
   }, [channelId]);
 
   const handleCreate = async () => {
-    if (!newVideoTitle || !newVideoThumbnail) return;
+    if (!newVideoTitle || !newVideoThumbnail || !newVideoDescription) return;
     try {
       const videoData = {
         title: newVideoTitle,
         thumbnailUrl: newVideoThumbnail,
-        description: 'Welcome to my channel',
+        description: newVideoDescription,
         videoUrl: 'https://example.com/video.mp4',
         userId: user._id,
       };
+
       const createdVideo = await createVideo(videoData, token);
-      setVideos([createdVideo, ...videos]);
+      setVideos([{ ...createdVideo, userId: user._id},  ...videos]);
       setNewVideoTitle('');
       setNewVideoThumbnail('');
+      setNewVideoDescription('');
     } catch (err) {
       console.error(err);
-      alert('Failed to create video.');
+      alert('Failed to create video.'); 
     }
   };
 
@@ -135,6 +139,13 @@ const ChannelPage = () => {
               placeholder="Video Title"
               value={newVideoTitle}
               onChange={(e) => setNewVideoTitle(e.target.value)}
+              className="flex-1 p-2 rounded bg-neutral-900 text-white"
+            />
+            <input
+              type="text"
+              placeholder='Video Description'
+              value={newVideoDescription}
+              onChange={(e) => setNewVideoDescription(e.target.value)}
               className="flex-1 p-2 rounded bg-neutral-900 text-white"
             />
             <input
