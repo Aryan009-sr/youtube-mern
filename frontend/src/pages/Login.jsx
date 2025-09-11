@@ -32,7 +32,7 @@ const Login = () => {
       // Save token in context
       login(data.token);
 
-      // Redirect to home
+      // Redirect to home//
       navigate('/');
     } catch (err) {
       console.error('Login error:', err.response?.data);
