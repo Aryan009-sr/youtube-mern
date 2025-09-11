@@ -36,7 +36,7 @@ const seedDB = async () => {
             ...video,
             userId: userIds[Math.floor(Math.random() * userIds.length)],
             views: Math.floor(Math.random() * 200000) + 10000,
-            duration: "15:00",
+            duration: '15:00',
             uploadedTime: `${Math.floor(Math.random() * 12) + 1} months ago`,
         }));
 
