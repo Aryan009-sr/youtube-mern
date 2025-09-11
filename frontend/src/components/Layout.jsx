@@ -14,11 +14,6 @@ const Layout = () => {
       <Header toggleSidebar={toggleSidebar} />
       <div className="flex pt-6 ">
         <Sidebar isOpen={isSidebarOpen} />
-        {/*
-          Add a conditional left margin to the main content.
-          It will be ml-56 when the sidebar is open and ml-16 when it's closed.
-          This pushes the main content to the right, preventing overlap.
-        */}
         <main
           className={`flex-grow p-7 transition-all duration-300 ${
             isSidebarOpen ? 'ml-56' : 'ml-16'

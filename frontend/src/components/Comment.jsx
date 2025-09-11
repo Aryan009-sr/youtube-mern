@@ -8,8 +8,8 @@ const Comment = ({ comment, user, onDelete, onEdit }) => {
     // This is the correct way to check for ownership
     // const isAuthor = user && comment.userId && String(comment.userId._id) === String(user.id);
     const isAuthor = user && comment.userId && String(comment.userId._id || comment.userId) === String(user._id || user.id);
-    console.log(typeof(comment.userId._id));
-    console.log(typeof(user._id));
+    console.log(typeof (comment.userId._id));
+    console.log(typeof (user._id));
 
     const handleEdit = () => {
         if (isAuthor) {

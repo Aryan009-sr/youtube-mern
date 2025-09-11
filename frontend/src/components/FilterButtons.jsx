@@ -10,9 +10,8 @@ const FilterButtons = ({ activeFilter, setActiveFilter }) => {
           <button
             key={index}
             onClick={() => setActiveFilter(filter)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
-              activeFilter === filter ? 'bg-white text-black' : 'bg-[#303030] text-white hover:bg-[#4a4a4a]'
-            }`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${activeFilter === filter ? 'bg-white text-black' : 'bg-[#303030] text-white hover:bg-[#4a4a4a]'
+              }`}
           >
             {filter}
           </button>
