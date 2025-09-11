@@ -4,7 +4,7 @@ const FilterButtons = ({ activeFilter, setActiveFilter }) => {
   const filters = ['All', 'Music', 'Gaming', 'Mixes', 'React', 'Live', 'Tutorials', 'Programming', 'Comedy'];
 
   return (
-    <div className="sticky top-18 z-20 bg-[#121212] p-4 mt-0 no-scrollbar border-b border-gray-800">
+    <div className="sticky top-18 z-20 bg-[#121212] p-7 mt-0 no-scrollbar border-b border-gray-800">
       <div className="flex items-center space-x-2 flex-wrap sm:space-x-4">
         {filters.map((filter, index) => (
           <button

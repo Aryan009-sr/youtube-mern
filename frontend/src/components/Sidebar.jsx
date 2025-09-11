@@ -26,7 +26,7 @@ import { IoGameControllerOutline } from 'react-icons/io5';
 const Sidebar = ({ isOpen }) => {
   return (
     <aside
-      className={`fixed top-16 left-0 h-full bg-[#212121] border-r border-gray-700 pt-4 pb-20 overflow-y-auto z-10 transition-all duration-300 ${isOpen ? 'w-56 px-4' : 'w-16'
+      className={`fixed top-16 left-0 h-full bg-[#212121] border-r border-gray-700 pt-6 pb-20 overflow-y-auto z-10 transition-all duration-300 ${isOpen ? 'w-56 px-4' : 'w-16'
         }`}
     >
       <nav>

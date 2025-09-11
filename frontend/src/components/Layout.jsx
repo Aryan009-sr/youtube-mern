@@ -12,7 +12,7 @@ const Layout = () => {
   return (
     <div className="bg-[#121212] min-h-screen">
       <Header toggleSidebar={toggleSidebar} />
-      <div className="flex pt-6">
+      <div className="flex pt-6 ">
         <Sidebar isOpen={isSidebarOpen} />
         {/*
           Add a conditional left margin to the main content.
@@ -20,7 +20,7 @@ const Layout = () => {
           This pushes the main content to the right, preventing overlap.
         */}
         <main
-          className={`flex-grow p-6 transition-all duration-300 ${
+          className={`flex-grow p-7 transition-all duration-300 ${
             isSidebarOpen ? 'ml-56' : 'ml-16'
           }`}
         >
