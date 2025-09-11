@@ -1,4 +1,3 @@
-// controllers/authController.js
 import User from '../models/User.js';
 import Channel from '../models/Channel.js';
 import bcrypt from 'bcryptjs';
