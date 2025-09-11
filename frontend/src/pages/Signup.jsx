@@ -33,10 +33,10 @@ const Signup = () => {
       );
 
       // Save token in context
-      login(data.token);
+      // login(data.token);
 
       // Redirect to home
-      navigate('/');
+      navigate('/login');
     } catch (err) {
       console.error('Signup error:', err.response?.data);
 
